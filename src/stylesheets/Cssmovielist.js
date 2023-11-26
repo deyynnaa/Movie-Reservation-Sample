@@ -53,5 +53,6 @@ export const MovielistContainer = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   padding: 30px;
+  gap: 25px;
   justify-content: space-evenly;
 `;

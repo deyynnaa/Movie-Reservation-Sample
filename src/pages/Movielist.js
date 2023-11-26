@@ -1,4 +1,5 @@
-import React from "react";
+// Movielist.js
+import React, { useState } from "react";
 import {
   Container,
   Header,
@@ -10,8 +11,15 @@ import {
 } from "../stylesheets/Cssmovielist";
 import SearchInput from "../components/SearchInput";
 import MovieComponent from "../components/MovieComp";
+import { moviesData } from "../components/MoviesData";
 
 function Movielist() {
+  const [searchQuery, updateSearchQuery] = useState("");
+
+  const onTextChange = (event) => {
+    updateSearchQuery(event.target.value);
+  };
+
   return (
     <Container>
       <Header>
@@ -21,14 +29,13 @@ function Movielist() {
         </Appname>
         <Searchbar>
           <SearchIcon src="/magnifying-glass.png" alt="MagnifyingGlass" />
-          <SearchInput />
+          <SearchInput onChange={onTextChange} />
         </Searchbar>
       </Header>
       <MovielistContainer>
-        <MovieComponent />
-        <MovieComponent />
-        <MovieComponent />
-        <MovieComponent />
+        {moviesData.map((movie, index) => (
+          <MovieComponent key={index} movie={movie} />
+        ))}
       </MovielistContainer>
     </Container>
   );
