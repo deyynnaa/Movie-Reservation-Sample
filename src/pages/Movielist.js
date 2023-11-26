@@ -4,7 +4,12 @@ import {
   Header,
   Appname,
   MovieImage,
+  Searchbar,
+  SearchIcon,
+  MovielistContainer,
 } from "../stylesheets/Cssmovielist";
+import SearchInput from "../components/SearchInput";
+import MovieComponent from "../components/MovieComp";
 
 function Movielist() {
   return (
@@ -14,8 +19,17 @@ function Movielist() {
           <MovieImage src="/clapperboard.png" alt="Clapperboard" />
           Movie Lists
         </Appname>
+        <Searchbar>
+          <SearchIcon src="/magnifying-glass.png" alt="MagnifyingGlass" />
+          <SearchInput />
+        </Searchbar>
       </Header>
-      Some stuffs
+      <MovielistContainer>
+        <MovieComponent />
+        <MovieComponent />
+        <MovieComponent />
+        <MovieComponent />
+      </MovielistContainer>
     </Container>
   );
 }
